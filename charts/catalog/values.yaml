@@ -87,10 +87,10 @@ controllerManager:
   resources:
     requests:
       cpu: 100m
-      memory: 20Mi
+      memory: 50Mi
     limits:
       cpu: 100m
-      memory: 30Mi
+      memory: 100Mi
   # Attributes of the controller's service resource
   service:
     # Type of service; valid values are "LoadBalancer", "NodePort" and "ClusterIP"
