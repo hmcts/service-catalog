@@ -4,26 +4,26 @@
 {{- $altName2 := printf "%s-catalog-apiserver.%s.svc" .Release.Name .Release.Namespace }}
 {{- $cert := genSignedCert $cn nil (list $altName1 $altName2) 3650 $ca }}
 {{- if .Values.useAggregator }}
-{{- if .Capabilities.APIVersions.Has "apiregistration.k8s.io/v1beta1" }}
-apiVersion: apiregistration.k8s.io/v1beta1
+{{- if .Capabilities.APIVersions.Has "apiregistration.k8s.io/v1" }}
+apiVersion: apiregistration.k8s.io/v1
 {{- else if .Capabilities.APIVersions.Has "apiregistration.k8s.io/v1alpha1" }}
 apiVersion: apiregistration.k8s.io/v1alpha1
 {{- else }}
-apiVersion: apiregistration.k8s.io/v1beta1
+apiVersion: apiregistration.k8s.io/v1
 {{- end }}
 kind: APIService
 metadata:
-  name: v1beta1.servicecatalog.k8s.io
+  name: v1.servicecatalog.k8s.io
 spec:
   group: servicecatalog.k8s.io
-  version: v1beta1
+  version: v1
   service:
     namespace: {{ .Release.Namespace }}
     name: {{ template "fullname" . }}-apiserver
   caBundle: {{ b64enc $ca.Cert }}
   {{ if .Capabilities.APIVersions.Has "apiregistration.k8s.io/v1alpha1" -}}
   priority: {{ .Values.apiserver.aggregator.priority }}
-  {{ else if .Capabilities.APIVersions.Has "apiregistration.k8s.io/v1beta1" -}}
+  {{ else if .Capabilities.APIVersions.Has "apiregistration.k8s.io/v1" -}}
   groupPriorityMinimum: {{ .Values.apiserver.aggregator.groupPriorityMinimum }}
   versionPriority: {{ .Values.apiserver.aggregator.versionPriority }}
   {{ else -}}
