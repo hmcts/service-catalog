@@ -8,7 +8,6 @@ go 1.13
 
 require (
 	github.com/go-openapi/spec v0.19.3
-	github.com/google/go-cmp v0.4.0 // indirect
 	github.com/google/gofuzz v1.1.0
 	github.com/gorilla/mux v1.7.3
 	github.com/hashicorp/go-multierror v1.0.0
@@ -18,17 +17,15 @@ require (
 	github.com/onsi/ginkgo v1.11.0
 	github.com/onsi/gomega v1.8.1
 	github.com/peterbourgon/mergemap v0.0.0-20130613134717-e21c03b7a721
-	github.com/pkg/errors v0.8.1
-	github.com/prometheus/client_golang v1.0.0
+	github.com/pkg/errors v0.9.1
+	github.com/prometheus/client_golang v1.11.1
 	github.com/spf13/cobra v0.0.5
 	github.com/spf13/pflag v1.0.5
 	github.com/spf13/viper v1.3.2
 	github.com/stretchr/testify v1.4.0
 	github.com/vrischmann/envconfig v1.1.0
-	golang.org/x/crypto v0.0.0-20200429183012-4b2356b1ed79 // indirect
 	golang.org/x/lint v0.0.0-20200302205851-738671d3881b
-	golang.org/x/net v0.0.0-20200324143707-d3edc9973b7e
-	golang.org/x/sys v0.0.0-20200509044756-6aff5f38e54f // indirect
+	golang.org/x/net v0.0.0-20200625001655-4c5254603344
 	gomodules.xyz/jsonpatch/v2 v2.0.1
 	k8s.io/api v0.18.2
 	k8s.io/apiextensions-apiserver v0.18.2
